@@ -431,7 +431,7 @@ ERRORS sort(
      * Pre-condition: valid argument values.
      * Post-condition: a[] has been sorted in ascending or
      * descending order.
-     * Dependency: swap()
+     * Dependency: swap(), sort_need_swap()
      * Note: bubble sort algorithm. The algorithm keeps track
      * of number of swaps in each iteration, and stops only
      * when no more swaps are needed.

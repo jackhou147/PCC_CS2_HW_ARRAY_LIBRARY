@@ -12,6 +12,7 @@
 using namespace std;
 
 //PROTOTYPES
+//Note: these functions are not part of the array library.
 void main_output(bool menu, int arr[], int num_used, int cursor, ERRORS error);     //help main function output
 void main_process(char command, int arr[],                                          //help main function process array
                   int & cursor, int & num_used,
@@ -60,7 +61,7 @@ void main_output(bool menu, int arr[], int num_used, int cursor, ERRORS error) {
     //2. output cursor position, last index, num_used
     display_array_info(cursor, num_used);
     cout<<setw(3);
-    //3. output list of the numbers in the array.
+    //3. output array itself
     display_array_nav(arr, num_used, cursor, error);
     cout << endl;
 }
@@ -77,7 +78,7 @@ void main_process(char command, int arr[],
      *   2. this function can do input, because
      *      it is the same level as main.
      * Dependency: append(), insert_before(), insert_after(),
-     *  remove(), search(), <cstdlib>
+     *  remove(), search()
      * TESTED: OCT 14, 2017
      */
 
@@ -148,31 +149,31 @@ void main_process(char command, int arr[],
             break;
         //unique
         case 'U':
-            error = delete_repeats(arr, num_used);
+            error = delete_repeats(arr, num_used);           //delete all repeated elements
             if (cursor > 0)
                 cursor = 0;
             break;
         //reverse
         case 'V':
-            error = reverse(arr, num_used);
+            error = reverse(arr, num_used);                  //reverse the array
             if (cursor > 0)
                 cursor = 0;
             break;
         //shuffle
         case 'H':
-            error = shuffle(arr, num_used);
+            error = shuffle(arr, num_used);                  //randomly rearrange the array
             if (cursor > 0)
                 cursor = 0;
             break;
         //ascending
         case '>':
-            error = sort(arr, num_used, true);
+            error = sort(arr, num_used, true);               //sort the array in ascending order
             if (cursor > 0)
                 cursor = 0;
             break;
         //descending
         case '<':
-            error = sort(arr, num_used, false);
+            error = sort(arr, num_used, false);              //sort the array in descending order
             if (cursor > 0)
                 cursor = 0;
             break;
@@ -183,12 +184,12 @@ void main_process(char command, int arr[],
         //cursor next
         case 'N':
             if ((cursor + 1) < num_used)
-                cursor++; //move cursor 1 element right
+                cursor++;                                    //move cursor 1 element right
             break;
         //cursor previous
         case 'P':
             if ((cursor - 1) >= 0)
-                cursor--; //move cursor 1 element left
+                cursor--;                                    //move cursor 1 element left
             break;
         //exit
         case 'X':
